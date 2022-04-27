@@ -23,8 +23,7 @@ module DanbooruTelegramUploader
   class Application < Rails::Application
     config.load_defaults 7.0
     config.api_only = true
-    config.autoload_paths += %W[#{config.root}/lib]
-    config.autoload_paths += Dir["#{config.root}/lib/**/"]
-    config.autoload_paths += Dir["#{config.root}/lib/danbooru_api/**"]
+    config.autoload_paths << "#{config.root}/lib"
+    config.eager_load_paths << "#{Rails.root}/lib"
   end
 end
